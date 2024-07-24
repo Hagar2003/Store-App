@@ -36,9 +36,10 @@ class HomePage extends StatelessWidget {
             ),
             child: FutureBuilder<List<ProductModel>>(
                 future: AllProductsService().getAllProducts(),
-                builder: (context, snapshot) {
-                  
+                builder: (BuildContext context, AsyncSnapshot<dynamic>snapshot) {
+
                   if (snapshot.hasData) {
+                    List<ProductModel> products = snapshot.data!;
                     return GridView.builder(
                         clipBehavior: Clip.none,
                         gridDelegate:
@@ -48,7 +49,9 @@ class HomePage extends StatelessWidget {
                                 crossAxisSpacing: 10,
                                 mainAxisSpacing: 10),
                         itemBuilder: (context, index) {
-                          return customCard();
+                          return CustomCard(
+                            product: products[index],
+                          );
                         });
                   } else {
                     return const Center(child: CircularProgressIndicator());
