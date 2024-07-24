@@ -39,7 +39,7 @@ class HomePage extends StatelessWidget {
                 builder: (BuildContext context, AsyncSnapshot<dynamic>snapshot) {
 
                   if (snapshot.hasData) {
-                    List<ProductModel> products = snapshot.data!;
+                    List<ProductModel> products = snapshot.data;
                     return GridView.builder(
                         clipBehavior: Clip.none,
                         gridDelegate:

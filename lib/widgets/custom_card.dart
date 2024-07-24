@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:storeapp/models/product_model.dart';
 
+
 // ignore: must_be_immutable
 class CustomCard extends StatelessWidget {
    CustomCard({super.key,required this.product});
